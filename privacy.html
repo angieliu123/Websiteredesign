@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico?v=4" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png?v=4" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png?v=4" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=2" />
+    <title>Privacy Policy | VersarAI</title>
+    <meta
+      name="description"
+      content="How VersarAI collects, uses, and protects personal information, and your rights under GDPR and CCPA."
+    />
+    <link rel="canonical" href="https://versarai.ai/privacy.html" />
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #16232b;
+        --ink-soft: #3c5058;
+        --paper: #f6f8f4;
+        --deep: #e8eee8;
+        --white: #fff;
+        --orange: #ef6c3b;
+        --orange-dark: #bd4825;
+        --green: #197c68;
+        --yellow: #f6c85f;
+        --line: #d6dfd9;
+      }
+
+      body {
+        min-height: 100vh;
+        background: var(--paper);
+        color: var(--ink);
+        font: 17px/1.65 Georgia, 'Times New Roman', serif;
+      }
+
+      a { color: inherit; }
+
+      .shell {
+        width: min(1160px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      h1, h2, h3, nav, .button, .eyebrow, .video-date, .footer-meta {
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: rgba(246, 248, 244, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
+      }
+
+      nav {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font: 700 24px/1 'Trebuchet MS', Arial, sans-serif;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand img {
+        display: block;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        object-fit: contain;
+      }
+
+      .brand-ai { color: var(--green); }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+        font: 700 15px/1.2 'Trebuchet MS', Arial, sans-serif;
+      }
+
+      .nav-links a {
+        color: var(--ink-soft);
+        text-decoration: none;
+      }
+
+      .nav-links a:hover { color: var(--orange-dark); }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 13px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s, color 0.2s;
+      }
+
+      .button:hover { transform: translateY(-2px); }
+
+      .button-primary {
+        background: var(--orange);
+        color: var(--white) !important;
+      }
+
+      .button-primary:hover { background: var(--orange-dark); }
+
+      .hero {
+        padding: 82px 0 64px;
+        background:
+          radial-gradient(circle at 85% 20%, rgba(246, 200, 95, 0.34), transparent 25%),
+          linear-gradient(135deg, var(--paper), #edf3e9);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin-bottom: 14px;
+        color: var(--orange-dark);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 18px;
+        font-size: clamp(42px, 6vw, 72px);
+        line-height: 1.04;
+        letter-spacing: -0.045em;
+      }
+
+      h1 span { color: var(--green); }
+
+      .hero p {
+        max-width: 680px;
+        color: var(--ink-soft);
+        font-size: 18px;
+      }
+
+      main { padding-bottom: 76px; }
+
+      .playlist-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 28px 0 0;
+      }
+
+      .button-secondary {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .button-secondary:hover {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .playlist-status {
+        min-height: 24px;
+        margin: 30px 0 16px;
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px;
+      }
+
+      .video-card {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--white);
+        box-shadow: 0 12px 28px rgba(22, 35, 43, 0.05);
+      }
+
+      .video-link {
+        position: relative;
+        display: block;
+        aspect-ratio: 16 / 9;
+        background: var(--ink);
+      }
+
+      .video-thumb {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .video-content { padding: 22px 24px 26px; }
+
+      .video-content h2 {
+        margin-bottom: 8px;
+        font-size: 22px;
+        line-height: 1.25;
+      }
+
+      .video-date {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--orange-dark);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .video-description {
+        color: var(--ink-soft);
+        font-size: 15px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+
+      .video-description a {
+        color: var(--green);
+      }
+
+      .site-footer {
+        padding: 30px 0;
+        background: var(--ink);
+        color: #b7c8c2;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-brand { color: var(--white); }
+      .footer-brand span { color: var(--yellow); }
+
+      .footer-meta {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .footer-meta a { color: inherit; }
+
+      @media (max-width: 850px) {
+        .shell { width: min(100% - 32px, 1160px); }
+        .video-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 520px) {
+        nav { min-height: 66px; }
+        .hero { padding: 62px 0 48px; }
+        .video-content { padding: 18px 18px 22px; }
+        .footer-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .hero-actions.centered { justify-content: center; }
+
+      main { padding-bottom: 0; }
+
+      .trust-section {
+        padding: 76px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .trust-section.alt { background: var(--deep); }
+
+      .trust-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: 48px;
+        align-items: start;
+      }
+
+      h2 {
+        font-size: clamp(30px, 3.6vw, 42px);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      h3 {
+        margin-bottom: 6px;
+        font-size: 19px;
+        line-height: 1.3;
+      }
+
+      .section-note {
+        margin-top: 18px;
+        color: var(--ink-soft);
+        font-size: 15px;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .trust-card {
+        padding: 24px;
+        border: 1px solid var(--line);
+        background: var(--white);
+        box-shadow: 0 12px 28px rgba(22, 35, 43, 0.05);
+      }
+
+      .trust-card p,
+      .trust-list p,
+      .status-row p {
+        color: var(--ink-soft);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .tier {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--orange-dark);
+        font: 700 11px/1 'Trebuchet MS', Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .trust-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 34px;
+        list-style: none;
+      }
+
+      .trust-list li {
+        padding-top: 18px;
+        border-top: 3px solid var(--green);
+      }
+
+      .status-table {
+        border: 1px solid var(--line);
+        background: var(--white);
+      }
+
+      .status-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 20px 24px;
+      }
+
+      .status-row + .status-row { border-top: 1px solid var(--line); }
+
+      .status {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font: 700 12px/1 'Trebuchet MS', Arial, sans-serif;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+
+      .status-active {
+        background: rgba(25, 124, 104, 0.12);
+        color: var(--green);
+      }
+
+      .status-planned {
+        background: rgba(246, 200, 95, 0.3);
+        color: #7a5a12;
+      }
+
+      .cta {
+        padding: 86px 0;
+        text-align: center;
+      }
+
+      .cta h2 { margin-bottom: 16px; }
+
+      .cta p {
+        max-width: 640px;
+        margin: 0 auto;
+        color: var(--ink-soft);
+      }
+
+      @media (max-width: 850px) {
+        .trust-grid { grid-template-columns: 1fr; gap: 28px; }
+        .card-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 520px) {
+        .trust-section { padding: 56px 0; }
+        .trust-list { grid-template-columns: 1fr; }
+        .status-row { align-items: flex-start; flex-direction: column; gap: 12px; }
+      }
+
+      .effective {
+        margin-top: 22px;
+        color: var(--orange-dark) !important;
+        font: 700 13px/1.4 'Trebuchet MS', Arial, sans-serif !important;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      main { padding: 64px 0 90px; }
+
+      .policy-layout {
+        display: grid;
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 64px;
+        align-items: start;
+      }
+
+      .policy-toc {
+        position: sticky;
+        top: 110px;
+      }
+
+      .policy-toc ol {
+        list-style: none;
+        border-left: 2px solid var(--line);
+        font: 700 14px/1.3 'Trebuchet MS', Arial, sans-serif;
+      }
+
+      .policy-toc li a {
+        display: block;
+        padding: 7px 0 7px 16px;
+        margin-left: -2px;
+        border-left: 2px solid transparent;
+        color: var(--ink-soft);
+        text-decoration: none;
+      }
+
+      .policy-toc li a:hover {
+        border-left-color: var(--orange);
+        color: var(--orange-dark);
+      }
+
+      .policy { max-width: 740px; }
+
+      .policy section {
+        padding-bottom: 34px;
+        margin-bottom: 34px;
+        border-bottom: 1px solid var(--line);
+        scroll-margin-top: 100px;
+      }
+
+      .policy section:last-child { border-bottom: 0; margin-bottom: 0; }
+
+      .policy h2 {
+        margin-bottom: 14px;
+        font-size: 28px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+      }
+
+      .policy p,
+      .policy li {
+        color: var(--ink-soft);
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      .policy p + p { margin-top: 14px; }
+
+      .policy ul {
+        margin: 14px 0;
+        padding-left: 22px;
+      }
+
+      .policy li + li { margin-top: 8px; }
+      .policy li::marker { color: var(--green); }
+
+      .policy a { color: var(--green); }
+
+      @media (max-width: 850px) {
+        .policy-layout { grid-template-columns: 1fr; gap: 36px; }
+        .policy-toc { position: static; }
+      }
+    </style>
+  
+    <meta property="og:title" content="Privacy Policy | VersarAI" />
+    <meta property="og:description" content="How VersarAI collects, uses, and protects personal information, and your rights under GDPR and CCPA." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://versarai.ai/privacy.html" />
+    <meta property="og:site_name" content="VersarAI" />
+    <meta property="og:image" content="https://versarai.ai/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VersarAI: Bring us the agent your team is trying to approve. A resolution trace shows which rule won and why." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy Policy | VersarAI" />
+    <meta name="twitter:description" content="How VersarAI collects, uses, and protects personal information, and your rights under GDPR and CCPA." />
+    <meta name="twitter:image" content="https://versarai.ai/img/og-card.png" />
+    <meta name="twitter:image:alt" content="VersarAI: Bring us the agent your team is trying to approve. A resolution trace shows which rule won and why." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/nav.css?v=5" />
+    <link rel="stylesheet" href="css/legacy-theme.css?v=5" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <nav class="shell" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">
+          <img src="img/versarai_logo.png?v=3" alt="VersarAI logo" />
+          <span class="brand-text">Versar<span class="brand-ai">AI</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="index.html#problem">Why governance</a></li>
+          <li><a href="index.html#how-it-works">How it works</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#demos">Demos</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="trust.html">Trust</a></li>
+          <li><a class="button button-primary" href="index.html#evaluate">Evaluate your agent</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="shell">
+        <!-- <div class="eyebrow">Privacy policy</div> -->
+        <h1>What we collect, and <span>what we don't.</span></h1>
+        <p>
+          VersarAI builds the behavior layer for AI agents. Our product is designed so that user
+          data stays on the device or inside our customer's infrastructure. This policy explains the
+          personal information we do handle and the choices you have.
+        </p>
+        <p class="effective">Effective October 15, 2026</p>
+      </div>
+    </section>
+
+    <main>
+      <!-- REVIEW BEFORE PUBLISHING: have counsel review this policy. Items marked CONFIRM need a factual check. -->
+      <div class="shell policy-layout">
+        <aside class="policy-toc" aria-label="On this page">
+          <div class="eyebrow">On this page</div>
+          <ol>
+            <li><a href="#who-we-are">Who we are</a></li>
+            <li><a href="#website">Visiting our website</a></li>
+            <li><a href="#contact">Contacting us</a></li>
+            <li><a href="#customer-data">Data in our product</a></li>
+            <li><a href="#sharing">Sharing and subprocessors</a></li>
+            <li><a href="#retention">Retention and security</a></li>
+            <li><a href="#transfers">International transfers</a></li>
+            <li><a href="#gdpr">Your rights under GDPR</a></li>
+            <li><a href="#ccpa">California residents</a></li>
+            <li><a href="#children">Children</a></li>
+            <li><a href="#changes">Changes and contact</a></li>
+          </ol>
+        </aside>
+
+        <article class="policy">
+          <section id="who-we-are">
+            <h2>Who we are</h2>
+            <p>
+              VersarAI, Inc. ("VersarAI", "we", "us") is a Delaware corporation. This policy covers
+              versarai.ai, our communications with you, and the VersarAI Sims Engine and related
+              services we provide to business customers.
+            </p>
+            <p>
+              For information you give us directly, such as an email, VersarAI is the controller.
+              For data our customers process through our product, the customer is the controller and
+              VersarAI acts as their processor. Section 4 explains that relationship.
+            </p>
+          </section>
+
+          <section id="website">
+            <h2>Visiting our website</h2>
+            <p>
+              Our website does not use cookies, analytics, advertising pixels, or tracking scripts.
+              We do not build profiles of visitors.
+            </p>
+            <p>
+              Like any website, our hosting provider records standard server logs when you load a
+              page: your IP address, browser type, the page requested, and the time. We use these logs
+              only to keep the site running and secure.
+            </p>
+            <p>
+              Our Videos page displays thumbnails served by YouTube, and our video links open on
+              YouTube. When your browser loads those images or you follow those links, Google receives
+              your IP address and handles it under its own privacy policy.
+            </p>
+          </section>
+
+          <section id="contact">
+            <h2>Contacting us</h2>
+            <p>
+              When you email us to request a demo, an evaluation, or security documentation, we
+              receive your name, email address, organization, and whatever you include in your message.
+              We use this to reply, to run the evaluation you asked for, and to keep a record of our
+              business relationship. Our legal basis under GDPR is your request and our legitimate
+              interest in responding to it.
+            </p>
+            <p>We do not add you to a mailing list unless you ask to be added.</p>
+          </section>
+
+          <section id="customer-data">
+            <h2>Data in our product</h2>
+            <p>
+              Our customers use the Sims Engine to give their AI agents a structured model of their
+              users. Where that data lives depends on the deployment the customer chooses:
+            </p>
+            <ul>
+              <li>On-device deployments keep Sims and inference on the user's device. VersarAI does not receive this data.</li>
+              <li>Customer-hosted deployments run inside the customer's own cloud or VPC. VersarAI does not receive this data.</li>
+              <li>Hybrid deployments keep Sims on the device and send the context selected for a task to the model provider the customer configures.</li>
+            </ul>
+            <p>
+              <!-- CONFIRM: matches current product behavior and pilot practice. -->
+              When we do process customer data, for example during a pilot or evaluation, we act only on
+              the customer's documented instructions and under a Data Processing Agreement. We do not
+              use customer data to train models for anyone else, and we do not sell it.
+            </p>
+            <p>
+              If you are an end user of a product built on VersarAI, the company that provides that
+              product controls your data. Please contact them first. We will help them respond to
+              your request.
+            </p>
+          </section>
+
+          <section id="sharing">
+            <h2>Sharing and subprocessors</h2>
+            <p>
+              We do not sell personal information, and we do not share it for cross-context
+              behavioral advertising. We disclose it only to:
+            </p>
+            <ul>
+              <li>Service providers that host our website, email, and infrastructure, under contracts that limit their use of the data.</li>
+              <li>Professional advisers, such as lawyers and accountants, where needed.</li>
+              <li>Authorities, when the law requires it.</li>
+              <li>A successor organization, if VersarAI is involved in a merger or acquisition. We will notify you before your information becomes subject to a different policy.</li>
+            </ul>
+            <p>
+              Customers can request our current subprocessor list at
+              <a href="mailto:info@versarai.ai?subject=Subprocessor%20list">info@versarai.ai</a>.
+            </p>
+          </section>
+
+          <section id="retention">
+            <h2>Retention and security</h2>
+            <p>
+              We keep correspondence for as long as the business relationship continues, and then for
+              as long as tax and legal obligations require. Server logs are kept only for operations
+              and security. Customer data processed during a pilot or evaluation is returned or deleted
+              when the engagement ends, as set out in the customer's agreement.
+            </p>
+            <p>
+              We protect information with encryption in transit, restricted access, and the
+              principle that data we do not hold cannot be exposed. No system is perfectly secure.
+              If a breach affects your personal information, we will notify you and the relevant
+              authorities as the law requires.
+            </p>
+          </section>
+
+          <section id="transfers">
+            <h2>International transfers</h2>
+            <p>
+              VersarAI is based in the United States. If you contact us from the European Economic
+              Area, the United Kingdom, or Switzerland, your information is processed in the United
+              States. Where we process personal data on behalf of customers in those regions, we rely
+              on the Standard Contractual Clauses in our Data Processing Agreement.
+            </p>
+          </section>
+
+          <section id="gdpr">
+            <h2>Your rights under GDPR</h2>
+            <p>
+              If you are in the EEA, the UK, or Switzerland, you have the right to access, correct,
+              delete, restrict, or port your personal data, and to object to processing based on our
+              legitimate interests. You also have the right to complain to your local data protection
+              authority.
+            </p>
+            <p>
+              To exercise any of these rights, email
+              <a href="mailto:info@versarai.ai?subject=Privacy%20request">info@versarai.ai</a>. We
+              respond within 30 days.
+            </p>
+          </section>
+
+          <section id="ccpa">
+            <h2>California residents</h2>
+            <p>
+              California residents have the right to know what personal information we collect, use,
+              and disclose, to request its deletion or correction, and to opt out of its sale or
+              sharing. We do not sell or share personal information, so there is nothing to opt out of.
+              We will not treat you differently for exercising these rights.
+            </p>
+            <p>
+              In the past 12 months we collected identifiers (name, email address, IP address) and
+              professional information (organization and role) from the sources described above, for
+              the purposes described above. Submit requests to
+              <a href="mailto:info@versarai.ai?subject=California%20privacy%20request">info@versarai.ai</a>.
+              We verify requests by confirming the email address on record. An authorized agent can
+              submit a request on your behalf with your written permission.
+            </p>
+          </section>
+
+          <section id="children">
+            <h2>Children</h2>
+            <p>
+              Our website and services are for businesses. They are not directed to children under 16,
+              and we do not knowingly collect their personal information.
+            </p>
+          </section>
+
+          <section id="changes">
+            <h2>Changes and contact</h2>
+            <p>
+              When we update this policy, we will change the effective date above. If a change is
+              material, we will say so on this page before it takes effect.
+            </p>
+            <p>
+              Questions about this policy or our practices go to
+              <a href="mailto:info@versarai.ai?subject=Privacy%20question">info@versarai.ai</a>.
+              For how we approach security and compliance, see our <a href="trust.html">Trust page</a>.
+            </p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand">Versar<span>AI</span></div>
+            <p class="footer-tag">The behavior layer for AI agents. Relevant rules in, consistent action out, every decision traceable.</p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="index.html#products">Products</a></li>
+              <li><a href="index.html#demos">Demos</a></li>
+              <li><a href="videos.html">Videos</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Learn</h4>
+            <ul>
+              <li><a href="research.html">Research</a></li>
+              <li><a href="compare.html">Compare</a></li>
+              <li><a href="https://github.com/VersarAI/SimBench" target="_blank" rel="noopener noreferrer">SimBench on GitHub</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="partners.html">Partners</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="trust.html">Trust</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="mailto:info@versarai.ai">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 VersarAI</span><span>info@versarai.ai</span></div>
+      </div>
+    </footer>
+
+  <script src="js/site.js?v=5" defer></script>
+  </body>
+</html>

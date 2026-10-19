@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico?v=4" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png?v=4" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png?v=4" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=2" />
+    <title>Behavior layer vs. memory stores and RAG | VersarAI</title>
+    <meta name="description" content="How a behavior layer differs from memory stores and RAG: conflict resolution, policy precedence, traceability, context size, and where each approach fits." />
+    <link rel="canonical" href="https://versarai.ai/compare.html" />
+    <meta property="og:title" content="Behavior layer vs. memory stores and RAG | VersarAI" />
+    <meta property="og:description" content="How a behavior layer differs from memory stores and RAG: conflict resolution, policy precedence, traceability, context size, and where each approach fits." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://versarai.ai/compare.html" />
+    <meta property="og:site_name" content="VersarAI" />
+    <meta property="og:image" content="https://versarai.ai/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VersarAI: Bring us the agent your team is trying to approve. A resolution trace shows which rule won and why." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Behavior layer vs. memory stores and RAG | VersarAI" />
+    <meta name="twitter:description" content="How a behavior layer differs from memory stores and RAG: conflict resolution, policy precedence, traceability, context size, and where each approach fits." />
+    <meta name="twitter:image" content="https://versarai.ai/img/og-card.png" />
+    <meta name="twitter:image:alt" content="VersarAI: Bring us the agent your team is trying to approve. A resolution trace shows which rule won and why." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/site.css?v=5" />
+    <link rel="stylesheet" href="css/nav.css?v=5" />
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="shell" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">
+          <img src="img/versarai_logo.png?v=3" alt="VersarAI logo" />
+          <span class="brand-text">Versar<span class="brand-ai">AI</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="index.html#problem">Why governance</a></li>
+          <li><a href="index.html#how-it-works">How it works</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#demos">Demos</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="trust.html">Trust</a></li>
+          <li><a class="button button-primary" href="index.html#evaluate">Evaluate your agent</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="page-hero">
+        <div class="shell">
+          <div class="eyebrow">Compare</div>
+          <h1>Behavior layer, memory store, or RAG?</h1>
+          <p>They solve different problems. Memory and retrieval help an agent know more. A behavior layer decides which rules the agent must follow, and records why.</p>
+          <div class="actions">
+            <a class="button button-primary" href="index.html#evaluate">Evaluate your agent</a>
+            <a class="button button-secondary" href="research.html">See the evidence</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band-white">
+        <div class="shell">
+          <div class="section-header">
+            <div class="eyebrow">Side by side</div>
+            <h2>Where each approach fits.</h2>
+          </div>
+          <div class="table-wrap reveal">
+            <table>
+              <thead>
+                <tr><th>Question</th><th>Memory store</th><th>RAG</th><th class="hl">Behavior layer (VersarAI)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>What does it hold?</td><td>Facts and past interactions about a user.</td><td>Documents, policies, and records, chunked and indexed.</td><td class="hl">Typed, versioned rules for one context each (Sims).</td></tr>
+                <tr><td>What reaches the model?</td><td>Recalled memories that look relevant.</td><td>The top retrieved passages.</td><td class="hl">A governed instruction set built from the selected rules.</td></tr>
+                <tr><td>Who wins when two sources conflict?</td><td><span class="no">Not defined.</span> The model decides.</td><td><span class="no">Not defined.</span> The model decides.</td><td class="hl"><span class="yes">A fixed order:</span> organizational policy, then role norms, then personal preference.</td></tr>
+                <tr><td>Can administrators override learned preferences?</td><td><span class="part">Depends on the implementation.</span></td><td><span class="part">Only through prompt wording.</span></td><td class="hl"><span class="yes">Yes.</span> Administrator rules sit above anything learned.</td></tr>
+                <tr><td>Can you explain a specific action?</td><td><span class="part">You can see what was recalled.</span></td><td><span class="part">You can see what was retrieved.</span></td><td class="hl"><span class="yes">A trace per decision:</span> rules considered, rule that won, and why.</td></tr>
+                <tr><td>How much context does each call carry?</td><td>Grows with what is remembered.</td><td>Grows with the number of passages retrieved.</td><td class="hl">Only the rules selected for this task.</td></tr>
+                <tr><td>Where can it run?</td><td>Usually the vendor's store.</td><td>Wherever your index lives.</td><td class="hl">On-device, in your cloud account, or inside your VPC.</td></tr>
+                <tr><td>Tied to one model?</td><td>Often tied to one platform.</td><td>Model-neutral.</td><td class="hl">Model-neutral by construction.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small-note">Memory stores and RAG vary a great deal by product. This table describes the typical pattern, not any one vendor. The one comparison we have measured is in the <a href="research.html" style="color:var(--blue-dark)">research</a>: typed blocks with arbitration against retrieval over a user's past decisions.</p>
+        </div>
+      </section>
+
+      <section class="section band-paper">
+        <div class="shell two-col">
+          <div>
+            <div class="eyebrow">Not either/or</div>
+            <h2>Use them together.</h2>
+          </div>
+          <div class="stack">
+            <article class="info-card"><h3>Keep your RAG for knowledge</h3><p>Retrieval is the right tool for answering from documents. The behavior layer does not replace it.</p></article>
+            <article class="info-card"><h3>Keep your memory for continuity</h3><p>Remembering what a user said last week is useful. It should not be what decides whether a refund is allowed.</p></article>
+            <article class="info-card"><h3>Add the layer for rules and proof</h3><p>When an agent must follow policy and a reviewer must be able to check it, the decision belongs in a layer that selects, arbitrates, and logs.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="shell" style="text-align:center">
+          <div class="eyebrow">See it on your workflow</div>
+          <h2 style="margin:0 auto 18px">Compare it with what you inject today.</h2>
+          <p style="margin:0 auto 28px">We run selection and arbitration on your tasks and show behavior, cost, and audit trail side by side.</p>
+          <div class="actions" style="justify-content:center">
+            <a class="button button-primary" style="background:#16232b" href="index.html#evaluate">Evaluate your agent</a>
+            <a class="button button-secondary" style="border-color:#fff;color:#fff" href="index.html#demos">Watch the demos</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand">Versar<span>AI</span></div>
+            <p class="footer-tag">The behavior layer for AI agents. Relevant rules in, consistent action out, every decision traceable.</p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="index.html#products">Products</a></li>
+              <li><a href="index.html#demos">Demos</a></li>
+              <li><a href="videos.html">Videos</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Learn</h4>
+            <ul>
+              <li><a href="research.html">Research</a></li>
+              <li><a href="compare.html">Compare</a></li>
+              <li><a href="https://github.com/VersarAI/SimBench" target="_blank" rel="noopener noreferrer">SimBench on GitHub</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="partners.html">Partners</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="trust.html">Trust</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="mailto:info@versarai.ai">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 VersarAI</span><span>info@versarai.ai</span></div>
+      </div>
+    </footer>
+    <script src="js/site.js?v=5" defer></script>
+  </body>
+</html>

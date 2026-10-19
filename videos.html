@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico?v=4" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png?v=4" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png?v=4" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=2" />
+    <title>Agentic AI Videos | VersarAI</title>
+    <meta
+      name="description"
+      content="Watch the VersarAI Agentic AI video series and read each episode's description."
+    />
+    <link rel="canonical" href="https://versarai.ai/videos.html" />
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #16232b;
+        --ink-soft: #3c5058;
+        --paper: #f6f8f4;
+        --deep: #e8eee8;
+        --white: #fff;
+        --orange: #ef6c3b;
+        --orange-dark: #bd4825;
+        --green: #197c68;
+        --yellow: #f6c85f;
+        --line: #d6dfd9;
+      }
+
+      body {
+        min-height: 100vh;
+        background: var(--paper);
+        color: var(--ink);
+        font: 17px/1.65 Georgia, 'Times New Roman', serif;
+      }
+
+      a { color: inherit; }
+
+      .shell {
+        width: min(1160px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      h1, h2, h3, nav, .button, .eyebrow, .video-date, .footer-meta {
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: rgba(246, 248, 244, 0.94);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(16px);
+      }
+
+      nav {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font: 700 24px/1 'Trebuchet MS', Arial, sans-serif;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .brand img {
+        display: block;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        object-fit: contain;
+      }
+
+      .brand-ai { color: var(--green); }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+        font: 700 15px/1.2 'Trebuchet MS', Arial, sans-serif;
+      }
+
+      .nav-links a {
+        color: var(--ink-soft);
+        text-decoration: none;
+      }
+
+      .nav-links a:hover { color: var(--orange-dark); }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 13px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s, color 0.2s;
+      }
+
+      .button:hover { transform: translateY(-2px); }
+
+      .button-primary {
+        background: var(--orange);
+        color: var(--white) !important;
+      }
+
+      .button-primary:hover { background: var(--orange-dark); }
+
+      .hero {
+        padding: 82px 0 64px;
+        background:
+          radial-gradient(circle at 85% 20%, rgba(246, 200, 95, 0.34), transparent 25%),
+          linear-gradient(135deg, var(--paper), #edf3e9);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin-bottom: 14px;
+        color: var(--orange-dark);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 18px;
+        font-size: clamp(42px, 6vw, 72px);
+        line-height: 1.04;
+        letter-spacing: -0.045em;
+      }
+
+      h1 span { color: var(--green); }
+
+      .hero p {
+        max-width: 680px;
+        color: var(--ink-soft);
+        font-size: 18px;
+      }
+
+      main { padding-bottom: 76px; }
+
+      .playlist-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 28px 0 0;
+      }
+
+      .button-secondary {
+        border-color: var(--ink);
+        color: var(--ink);
+      }
+
+      .button-secondary:hover {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .playlist-status {
+        min-height: 24px;
+        margin: 30px 0 16px;
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 26px;
+      }
+
+      .video-card {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--white);
+        box-shadow: 0 12px 28px rgba(22, 35, 43, 0.05);
+      }
+
+      .video-link {
+        position: relative;
+        display: block;
+        aspect-ratio: 16 / 9;
+        background: var(--ink);
+      }
+
+      .video-thumb {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .video-content { padding: 22px 24px 26px; }
+
+      .video-content h2 {
+        margin-bottom: 8px;
+        font-size: 22px;
+        line-height: 1.25;
+      }
+
+      .video-date {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--orange-dark);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .video-description {
+        color: var(--ink-soft);
+        font-size: 15px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+
+      .video-description a {
+        color: var(--green);
+      }
+
+      .site-footer {
+        padding: 30px 0;
+        background: var(--ink);
+        color: #b7c8c2;
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-brand { color: var(--white); }
+      .footer-brand span { color: var(--yellow); }
+
+      .footer-meta {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .footer-meta a { color: inherit; }
+
+      @media (max-width: 850px) {
+        .shell { width: min(100% - 32px, 1160px); }
+        .video-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 520px) {
+        nav { min-height: 66px; }
+        .hero { padding: 62px 0 48px; }
+        .video-content { padding: 18px 18px 22px; }
+        .footer-row {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  
+    <meta property="og:title" content="Agentic AI Videos | VersarAI" />
+    <meta property="og:description" content="Watch the VersarAI Agentic AI video series and read each episode's description." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://versarai.ai/videos.html" />
+    <meta property="og:site_name" content="VersarAI" />
+    <meta property="og:image" content="https://versarai.ai/img/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="VersarAI: Bring us the agent your team is trying to approve. A resolution trace shows which rule won and why." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agentic AI Videos | VersarAI" />
+    <meta name="twitter:description" content="Watch the VersarAI Agentic AI video series and read each episode's description." />
+    <meta name="twitter:image" content="https://versarai.ai/img/og-card.png" />
+    <meta name="twitter:image:alt" content="VersarAI: Bring us the agent your team is trying to approve. A resolution trace shows which rule won and why." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/nav.css?v=5" />
+    <link rel="stylesheet" href="css/legacy-theme.css?v=5" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <nav class="shell" aria-label="Main navigation">
+        <a class="brand" href="index.html#top">
+          <img src="img/versarai_logo.png?v=3" alt="VersarAI logo" />
+          <span class="brand-text">Versar<span class="brand-ai">AI</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu"><span></span></button>
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="index.html#problem">Why governance</a></li>
+          <li><a href="index.html#how-it-works">How it works</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#demos">Demos</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="trust.html">Trust</a></li>
+          <li><a class="button button-primary" href="index.html#evaluate">Evaluate your agent</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="shell">
+        <!-- <div class="eyebrow">VersarAI video series</div> -->
+        <h1>Ideas shaping the next generation of <span>agents.</span></h1>
+        <!-- <p>
+          Watch every episode in our Agentic AI series and explore its YouTube description.
+          New videos appear here as they are added to the playlist.
+        </p> -->
+        <!-- <div class="playlist-actions">
+          <a
+            class="button button-secondary"
+            href="https://www.youtube.com/playlist?list=PLVlerQGR3auA"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Open full playlist on YouTube</a>
+        </div> -->
+      </div>
+    </section>
+
+    <main class="shell">
+      <p class="playlist-status" id="playlist-status" role="status" aria-live="polite">
+        Loading playlist videos...
+      </p>
+      <div class="video-grid" id="video-grid"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand">Versar<span>AI</span></div>
+            <p class="footer-tag">The behavior layer for AI agents. Relevant rules in, consistent action out, every decision traceable.</p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <ul>
+              <li><a href="index.html#products">Products</a></li>
+              <li><a href="index.html#demos">Demos</a></li>
+              <li><a href="videos.html">Videos</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Learn</h4>
+            <ul>
+              <li><a href="research.html">Research</a></li>
+              <li><a href="compare.html">Compare</a></li>
+              <li><a href="https://github.com/VersarAI/SimBench" target="_blank" rel="noopener noreferrer">SimBench on GitHub</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="partners.html">Partners</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="trust.html">Trust</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="mailto:info@versarai.ai">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>&copy; 2026 VersarAI</span><span>info@versarai.ai</span></div>
+      </div>
+    </footer>
+
+    <script>
+      const videoGrid = document.querySelector('#video-grid');
+      const playlistStatus = document.querySelector('#playlist-status');
+
+      function createVideoCard(video) {
+        if (!/^[A-Za-z0-9_-]{11}$/.test(video.id) || typeof video.title !== 'string') {
+          return null;
+        }
+
+        const card = document.createElement('article');
+        card.className = 'video-card';
+
+        const link = document.createElement('a');
+        link.className = 'video-link';
+        link.href = `https://www.youtube.com/watch?v=${video.id}&list=PLVlerQGR3auA`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.setAttribute('aria-label', `Watch ${video.title} on YouTube`);
+
+        const image = document.createElement('img');
+        image.className = 'video-thumb';
+        image.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+        image.alt = '';
+        image.loading = 'lazy';
+        link.append(image);
+
+        const content = document.createElement('div');
+        content.className = 'video-content';
+
+        const title = document.createElement('h2');
+        title.textContent = video.title;
+        content.append(title);
+
+        if (typeof video.published === 'string' && video.published) {
+          const date = new Date(video.published);
+          if (!Number.isNaN(date.getTime())) {
+            const published = document.createElement('time');
+            published.className = 'video-date';
+            published.dateTime = date.toISOString();
+            published.textContent = new Intl.DateTimeFormat(undefined, {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            }).format(date);
+            content.append(published);
+          }
+        }
+
+        const description = document.createElement('p');
+        description.className = 'video-description';
+        description.textContent = typeof video.description === 'string' && video.description
+          ? video.description
+          : 'Description is not available for this video.';
+        content.append(description);
+
+        card.append(link, content);
+        return card;
+      }
+
+      async function loadPlaylistVideos() {
+        try {
+          const response = await fetch('playlist-feed.php?all=1&descriptions=1&v=3', {
+            headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) {
+            throw new Error('Playlist request failed');
+          }
+
+          const data = await response.json();
+          if (!Array.isArray(data.videos)) {
+            throw new Error('Playlist response was invalid');
+          }
+
+          const cards = data.videos.map(createVideoCard).filter(Boolean);
+          videoGrid.replaceChildren(...cards);
+          playlistStatus.textContent = cards.length
+            ? `Showing ${cards.length} videos from the Agentic AI playlist.`
+            : 'No playlist videos are available right now.';
+        } catch (error) {
+          playlistStatus.textContent =
+            'Playlist videos could not be loaded. Open the full playlist on YouTube to watch.';
+        }
+      }
+
+      loadPlaylistVideos();
+    </script>
+  <script src="js/site.js?v=5" defer></script>
+  </body>
+</html>
